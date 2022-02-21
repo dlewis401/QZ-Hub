@@ -1,3 +1,37 @@
+-- WHITELIST SYSTEM
+
+local keys = {
+    "Key"
+}
+
+local counter = 1
+local keyCheck
+for i,v in pairs(keys) do
+    if counter == #keys then
+    --not whitelisted!
+    keys = ""
+    game.Players.LocalPlayer:Kick("Not a valid key!")
+    else
+        if v == _G.Key then
+            --Whitelisted!
+            print("Successfully whitelisted!")
+            keyCheck = _G.Key
+            keys = ""
+        else
+            counter = counter +1
+        end
+    end
+end
+
+while true do
+    if _G.Key == keyCheck then
+        --Not spoofed
+    else
+        game.Players.LocalPlayer:Kick("Do not try and spoof your key!")
+    end
+    wait()
+end
+
 -- UI SCRIPT 
 
 local Quarantine_Z_Hub = loadstring(game:HttpGet("https://raw.githubusercontent.com/xHeptc/Kavo-UI-Library/main/source.lua"))()
@@ -36,6 +70,29 @@ _G.Speed = true
     wait()
     end
 end)
+
+-- Infinite Jump
+Player_Section:NewButton("Infinite Jump", "This button allows you to infinite jump!", function()
+	local Player = game:GetService'Players'.LocalPlayer;
+	local UIS = game:GetService'UserInputService';
+	
+	_G.JumpHeight = 20;
+	
+	function Action(Object, Function) if Object ~= nil then Function(Object); end end
+	
+	UIS.InputBegan:connect(function(UserInput)
+		if UserInput.UserInputType == Enum.UserInputType.Keyboard and UserInput.KeyCode == Enum.KeyCode.Space then
+			Action(Player.Character.Humanoid, function(self)
+				if self:GetState() == Enum.HumanoidStateType.Jumping or self:GetState() == Enum.HumanoidStateType.Freefall then
+					Action(self.Parent.HumanoidRootPart, function(self)
+						self.Velocity = Vector3.new(0, _G.JumpHeight, 0);
+					end)
+				end
+			end)
+		end
+	end)
+end)
+
 
 -- ESP
 Player_Section:NewButton("ESP", "Enables ESP for Quarantine-Z - Unnamed ESP + Custom-made bypass Script", function()
@@ -2539,6 +2596,7 @@ RunService:UnbindFromRenderStep(UpdateName);
 RunService:BindToRenderStep(GetDataName, 300, UpdatePlayerData);
 RunService:BindToRenderStep(UpdateName, 199, Update);
 end)
+
 
 -- MISC SECTION
 local Misc_Tab = Main_Window:NewTab("Misc")
