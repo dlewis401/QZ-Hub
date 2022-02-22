@@ -2615,7 +2615,7 @@ local names = {
 	local b = Instance.new("TextLabel",s)
 	b.Position = UDim2.new(0.4,0,0.4,0)
 	b.Size = UDim2.new(0.3,0,0.2,0)
-	b.Text = (player.Name.."Has joined. They're an Moderator or Admin!")
+	b.Text = (player.Name.."Has joined.")
 	b.TextScaled = true
 	wait(5)
 	
@@ -2627,7 +2627,7 @@ local names = {
 	t.Position = UDim2.new(0.03,0,0.5,0)
 	t.Size = UDim2.new(0.1,0,0.05,0)
 	t.BackgroundTransparency = 0
-	t.Text = player.Name.." Has joined. They're an Moderator or Admin!"
+	t.Text = player.Name.." Has joined."
 	wait(4)
 	for i,v in pairs(game.Players.LocalPlayer.PlayerGui:GetChildren()) do
 	if v.Name == "ScreenGui" then
