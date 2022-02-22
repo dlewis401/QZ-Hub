@@ -2575,4 +2575,53 @@ Misc_Section:NewButton("Private / Grind Server", "Puts you in a Private Server",
 local plr = game.Players.LocalPlayer
 
 tpservice:Teleport(game.PlaceId, plr)
+									
+-- MOD JOIN DETECTION NOTIFICATION
+									
+local names = {
+["adminperhaps"] = "lolchickens777",
+["adminperhaps"] = "superspeedymillien",
+["adminperhaps"] = "Hunterjojo00",
+["adminperhaps"] = "Le_Janitor",
+["adminperhaps"] = "domwek",
+["adminperhaps"] = "MAILB4U4",
+["adminperhaps"] = "Tenthor",
+["adminperhaps"] = "H_abo",
+["adminperhaps"] = "MorganXVl",
+["adminperhaps"] = "ekisai",
+["adminperhaps"] = "v_ile",
+["adminperhaps"] = "LeMintyFresh",
+["adminperhaps"] = "popcorn897",
+}
+
+game.Players.PlayerAdded:connect(function(player)
+
+local a = Instance.new("ScreenGui",game.Players.LocalPlayer.PlayerGui)
+
+if names[player.Name] then
+local s = Instance.new("ScreenGui",game.Players.LocalPlayer.PlayerGui)
+local b = Instance.new("TextLabel",s)
+b.Position = UDim2.new(0.4,0,0.4,0)
+b.Size = UDim2.new(0.3,0,0.2,0)
+b.Text = (player.Name.."has entered")
+b.TextScaled = true
+wait(5)
+
+end
+
+
+t = Instance.new("TextLabel",a)
+
+t.Position = UDim2.new(0.03,0,0.5,0)
+t.Size = UDim2.new(0.1,0,0.05,0)
+t.BackgroundTransparency = 0
+t.Text = player.Name.." Has joined"
+wait(4)
+for i,v in pairs(game.Players.LocalPlayer.PlayerGui:GetChildren()) do
+if v.Name == "ScreenGui" then
+v:Destroy()
+end
+end
+
+end)
 end)
