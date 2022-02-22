@@ -2602,8 +2602,7 @@ local names = {
 	["adminperhaps"] = "ekisai",
 	["adminperhaps"] = "v_ile",
 	["adminperhaps"] = "LeMintyFresh",
-	["adminperhaps"] = "popcorn897",
-	["adminperhaps"] = "doctorwhotardisman12",
+	["adminperhaps"] = "popcorn897"
 	}
 	
 	game.Players.PlayerAdded:connect(function(player)
