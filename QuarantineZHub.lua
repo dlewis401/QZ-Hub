@@ -11,7 +11,7 @@ local colors = {
 -- UI SCRIPT 
 
 local Quarantine_Z_Hub = loadstring(game:HttpGet("https://raw.githubusercontent.com/xHeptc/Kavo-UI-Library/main/source.lua"))()
-local Main_Window = Quarantine_Z_Hub.CreateLib("N3UR0515 Hub DEVELOPMENT BUILD", colors)
+local Main_Window = Quarantine_Z_Hub.CreateLib("N3UR0515 Hub", colors)
 
 -- CREDITS SECTION 
 local Credits_Tab = Main_Window:NewTab("Credits")
