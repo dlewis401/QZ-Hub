@@ -11,7 +11,7 @@ local colors = {
 -- UI SCRIPT 
 
 local Quarantine_Z_Hub = loadstring(game:HttpGet("https://raw.githubusercontent.com/xHeptc/Kavo-UI-Library/main/source.lua"))()
-local Main_Window = Quarantine_Z_Hub.CreateLib("N3UR0515 Hub", colors)
+local Main_Window = Quarantine_Z_Hub.CreateLib("N3UR0515 Hub DEVELOPMENT BUILD", colors)
 
 -- CREDITS SECTION 
 local Credits_Tab = Main_Window:NewTab("Credits")
@@ -24,7 +24,7 @@ local Player_Tab = Main_Window:NewTab("Player")
 local Player_Section = Player_Tab:NewSection("Player Options")
 
 -- Walk Speed
-Player_Section:NewSlider("Walk-Speed", "This allows you to change the walkspeed", 0.9, 0, function(Speed) -- 500 (MaxValue) | 0 (MinValue) 
+Player_Section:NewSlider("Walk-Speed", "This allows you to change the walkspeed! WARNING: YOU MAY GET KICKED", 0.9, 0, function(Speed) -- 500 (MaxValue) | 0 (MinValue) 
 _G.Speed = true 
     
     You = game.Players.LocalPlayer.Name
@@ -47,8 +47,14 @@ _G.Speed = true
     end
 end)
 
+-- TOGGLE WALK-SPEED BUTTON
+Player_Section:NewButton("Fix Walkspeed", "This allows your walkspeed to turn back to normal!", function()
+    _G.Speed = false -- Toggle Speed
+end)
+
+
 -- Infinite Jump
-Player_Section:NewButton("Infinite Jump", "This button allows you to infinite jump!", function()
+Player_Section:NewButton("Infinite Jump", "This button allows you to infinite jump! - WARNING: YOU MAY GET KICKED", function()
 	local Player = game:GetService'Players'.LocalPlayer;
 	local UIS = game:GetService'UserInputService';
 	
@@ -2602,7 +2608,8 @@ local names = {
 	["adminperhaps"] = "ekisai",
 	["adminperhaps"] = "v_ile",
 	["adminperhaps"] = "LeMintyFresh",
-	["adminperhaps"] = "popcorn897"
+	["adminperhaps"] = "popcorn897",
+	["adminperhaps"] = "doctorwhotardisman12",
 	}
 	
 	game.Players.PlayerAdded:connect(function(player)
